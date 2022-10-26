@@ -6,14 +6,20 @@ import pandas as pd
 # Module for reading CSV files
 import csv
 
-csvpath = os.path.join('..', 'Resources', 'budget_data.csv')
+csvpath = os.path.join('Resources', 'election_data.csv')
+
+votes = []
+candidates = []
+pct_votes = 0.0
+
 
 with open(csvpath) as csvfile:
 
     # CSV reader specifies delimiter and variable that holds contents
-    pybank = csv.reader(csvfile, delimiter=',')
+    csvreader = csv.reader(csvfile, delimiter=',')
 
-    ttl_votes = sum(voter_id)
-    pct_votes = sum(3/4)
-    candidate_total = sum(col(3,4))
-    winner = max(candidate_total)
+    first_vote = next(csvreader)
+    pre_val = int(fr[0])
+    print(pre_val)
+
+
