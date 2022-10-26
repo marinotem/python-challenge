@@ -1,5 +1,3 @@
-import os
-# from os import path
 
 # Module for reading CSV files
 import os
@@ -24,10 +22,11 @@ with open(csvpath) as csvfile:
     csvreader = csv.reader(csvfile, delimiter=',')
     # CSV reader specifies delimiter and variable that holds contents
 
-    csv_header = next(csvreader)
-    print(f"CSV Header: {csv_header}")
+   # csv_header = next(csvreader)
+    #print(f"CSV Header: {csv_header}")
     
     #defining some variables
+    titles = next(csvreader)
     fr = next(csvreader)
     pre_val = int(fr[1])
     first_month = (fr[0])
@@ -62,3 +61,11 @@ with open(csvpath) as csvfile:
     print(f"Average Change = {avg_of_changes}")
     print(f"Geatest Increase in profits = {greatest_inc[1]} ({greatest_inc[0]})")
     print(f"Greatest Decrease in profits = {greatest_decr[1]} ({greatest_decr[0]})")
+
+    with open("output.txt", "a") as f:
+        print("Financial Analysis:", file=f)
+        print(f"Total = {net_total}",file=f)
+        print(f"Average Change = {avg_of_changes}",file=f)
+        print(f"Geatest Increase in profits = {greatest_inc[1]} ({greatest_inc[0]})",file=f)
+        print(f"Greatest Decrease in profits = {greatest_decr[1]} ({greatest_decr[0]})",file=f)
+        
